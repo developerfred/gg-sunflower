@@ -1,6 +1,6 @@
 specVersion: 0.0.5
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum
     name: SunflowerLand
@@ -23,7 +23,7 @@ dataSources:
         - Unpaused
       abis:
         - name: SunflowerLand
-          file: ./abis/SunflowerLand.json
+          file: SunflowerLand/abis/SunflowerLand.json
       eventHandlers:
         - event: Approval(indexed address,indexed address,indexed uint256)
           handler: handleApproval
@@ -39,4 +39,4 @@ dataSources:
           handler: handleTransfer
         - event: Unpaused(address)
           handler: handleUnpaused
-      file: ./src/sunflower-land.ts
+      file: SunflowerLand/SunflowerLand.wasm

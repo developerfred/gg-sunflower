@@ -3,6 +3,10 @@
     "SunflowerLand": {
       "address": "0x2B4A66557A79263275826AD31a4cDDc2789334bD",
       "startBlock": 25058501
+    },
+    "Bumpkin": {
+      "address": "0x624e4fa6980afcf8ea27bfe08e2fb5979b64df1c",
+      "startBlock": 34597139
     }
   }
 }
