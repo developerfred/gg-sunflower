@@ -1,0 +1,42 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: SunflowerLand
+    network: matic
+    source:
+      address: "0x2B4A66557A79263275826AD31a4cDDc2789334bD"
+      abi: SunflowerLand
+      startBlock: 25058501
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - LandCreated
+        - OwnershipTransferred
+        - Paused
+        - Transfer
+        - Unpaused
+      abis:
+        - name: SunflowerLand
+          file: ./abis/SunflowerLand.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,indexed uint256)
+          handler: handleApproval
+        - event: ApprovalForAll(indexed address,indexed address,bool)
+          handler: handleApprovalForAll
+        - event: LandCreated(indexed address,indexed address,indexed uint256)
+          handler: handleLandCreated
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+        - event: Paused(address)
+          handler: handlePaused
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Unpaused(address)
+          handler: handleUnpaused
+      file: ./src/sunflower-land.ts
